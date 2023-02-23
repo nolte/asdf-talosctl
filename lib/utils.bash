@@ -81,7 +81,6 @@ download_release() {
   version="$1"
   filename="$2"
 
-  # TODO: Adapt the release URL convention for talosctl
   url="$(get_download_url $version $(get_release_talosctl_asset_name))"
 
   echo "* Downloading $TOOL_NAME release $version..."
@@ -99,9 +98,9 @@ install_version() {
 
   (
     mkdir -p "$install_path"
-    cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
+    cp -r "$ASDF_DOWNLOAD_PATH"/$(get_release_talosctl_asset_name) "$install_path/$TOOL_NAME"
+    chmod +x "$install_path/$TOOL_NAME"
 
-    # TODO: Assert talosctl executable exists.
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
     test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."

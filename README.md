@@ -54,8 +54,9 @@ install & manage versions.
 
 ```sh
 export ASDF_INSTALL_VERSION=1.3.5
-export ASDF_INSTALL_PATH=/tmp/asdf-debug
-
+export ASDF_DOWNLOAD_PATH=/tmp/asdf-debug/downloads/
+export ASDF_INSTALL_PATH=/tmp/asdf-debug/bin/
+export ASDF_INSTALL_TYPE=version
 ./bin/download
 ```
 
