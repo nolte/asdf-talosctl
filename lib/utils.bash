@@ -5,7 +5,7 @@ set -euo pipefail
 repository=siderolabs/talos
 GH_REPO="https://github.com/siderolabs/talos"
 TOOL_NAME="talosctl"
-TOOL_TEST="talosctl version"
+TOOL_TEST="talosctl version --client"
 
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"
