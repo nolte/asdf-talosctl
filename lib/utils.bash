@@ -12,7 +12,6 @@ fail() {
   exit 1
 }
 
-
 # get the OS family name
 get_os() {
   uname | tr '[:upper:]' '[:lower:]'
@@ -23,19 +22,18 @@ get_arch() {
   local -r arch=$(uname -m)
 
   case $arch in
-    x86_64)
-      echo amd64
-      ;;
-    aarch64)
-      echo arm64
-      ;;
-    *)
-      # e.g. "arm64"
-      echo $arch
-      ;;
+  x86_64)
+    echo amd64
+    ;;
+  aarch64)
+    echo arm64
+    ;;
+  *)
+    # e.g. "arm64"
+    echo $arch
+    ;;
   esac
 }
-
 
 curl_opts=(-fsSL)
 
@@ -59,7 +57,6 @@ list_all_versions() {
   # Change this function if talosctl has other means of determining installable versions.
   list_github_releases
 }
-
 
 get_release_talosctl_asset_name() {
   local -r os=$(get_os)
